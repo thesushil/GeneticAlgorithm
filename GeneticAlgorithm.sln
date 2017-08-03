@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneticAlgorithm", "GeneticAlgorithm\GeneticAlgorithm.csproj", "{D8783F7F-8D81-4C03-BA3B-A630247321B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainProgram", "MainProgram\MainProgram.csproj", "{F80DAE84-F191-4D3D-8172-71EAE7085030}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquationSolver", "EquationSolver\EquationSolver.csproj", "{2876694F-2567-40C3-8CCF-0A942125FCD2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8783F7F-8D81-4C03-BA3B-A630247321B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8783F7F-8D81-4C03-BA3B-A630247321B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8783F7F-8D81-4C03-BA3B-A630247321B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8783F7F-8D81-4C03-BA3B-A630247321B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F80DAE84-F191-4D3D-8172-71EAE7085030}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F80DAE84-F191-4D3D-8172-71EAE7085030}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F80DAE84-F191-4D3D-8172-71EAE7085030}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F80DAE84-F191-4D3D-8172-71EAE7085030}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2876694F-2567-40C3-8CCF-0A942125FCD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2876694F-2567-40C3-8CCF-0A942125FCD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2876694F-2567-40C3-8CCF-0A942125FCD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2876694F-2567-40C3-8CCF-0A942125FCD2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
