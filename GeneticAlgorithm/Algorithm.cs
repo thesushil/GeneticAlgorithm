@@ -10,7 +10,7 @@ namespace GeneticAlgorithm
         private const int GeneMin = -100, GeneMax = 100;
 
         public static int ChromosomeLength { get; set; }
-        public static Func<IEnumerable<int>, double> FitnessFunction { get; set; }
+        public static Func<IEnumerable<double>, double> FitnessFunction { get; set; }
 
         public static Chromosome FindBestSolution()
         {
@@ -36,9 +36,9 @@ namespace GeneticAlgorithm
             _population = new List<Chromosome>(populationSize);
             for (var i = 0; i < populationSize; i++)
             {
-                var genes = new int[Chromosome.Length];
+                var genes = new double[Chromosome.Length];
                 for (var g = 0; g < Chromosome.Length; g++)
-                    genes[g] = random.Next(GeneMin, GeneMax);
+                    genes[g] = GeneMin + (GeneMax - GeneMin) * random.NextDouble();
                 _population.Add(new Chromosome(genes));
             }
         }
