@@ -10,11 +10,11 @@ namespace MathEquations
 
         public const int VariableCount = 4;
 
-        public static int CalculateFitness(IEnumerable<int> variables)
+        public static double CalculateFitness(IEnumerable<int> variables)
         {
             var eqVar = variables.ToArray();
             var fitness = Math.Abs(eqVar[0] + 2 * eqVar[1] + 3 * eqVar[2] + 4 * eqVar[3] - 30);
-            return fitness;
+            return 1.0/(1 + fitness);
         }
     }
 }

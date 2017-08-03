@@ -9,7 +9,7 @@
 
         public static int Length { get; set; }
         public int[] Genes { get; set; }
-        public int Fitness { get; set; }
+        public double Fitness { get; set; }
 
         public override string ToString()
         {
