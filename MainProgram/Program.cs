@@ -1,4 +1,6 @@
 ﻿using System;
+using MathEquations;
+using GeneticAlgorithm;
 
 namespace MainProgram
 {
@@ -6,7 +8,10 @@ namespace MainProgram
     {
         private static void Main(string[] args)
         {
-            var bestSolution = GeneticAlgorithm.GeneticAlgorithm.FindBestSolution();
+            Algorithm.FitnessFunction = Equation1.CalculateFitness;
+            Algorithm.ChromosomeLength = Equation1.VariableCount;
+
+            var bestSolution = GeneticAlgorithm.Algorithm.FindBestSolution();
             Console.WriteLine($"Chromosome: {bestSolution}, Fitness:{bestSolution.Fitness}");
             Console.ReadLine();
         }

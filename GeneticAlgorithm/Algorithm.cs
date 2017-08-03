@@ -3,19 +3,29 @@ using System.Collections.Generic;
 
 namespace GeneticAlgorithm
 {
-    public static class GeneticAlgorithm
+    public static class Algorithm
     {
         private const int RandomSeed = 297;
-        private const int PopulationSize = 100;
-        private const int ChromosomeLength = 4;
-        private const int GeneMin = -100, GeneMax = 100; 
+        private const int PopulationSize = 10000;
+        private const int GeneMin = -100, GeneMax = 100;
+
+        public static int ChromosomeLength { get; set; }
+        public static Func<IEnumerable<int>, int> FitnessFunction { get; set; }
 
         public static Chromosome FindBestSolution()
         {
             Chromosome.Length = ChromosomeLength;
             var random = new Random(RandomSeed);
             InitializePopulation(random, PopulationSize);
-            return _population[random.Next(0,PopulationSize-1)];
+
+            var bestChromosome = _population[0];
+            foreach (var chromosome in _population)
+            {
+                chromosome.Fitness = FitnessFunction(chromosome.Genes);
+                if (chromosome.Fitness < bestChromosome.Fitness) bestChromosome = chromosome;
+            }
+
+            return bestChromosome;
         }
 
         private static IList<Chromosome> _population;
