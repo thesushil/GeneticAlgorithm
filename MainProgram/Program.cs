@@ -1,5 +1,5 @@
 ﻿using System;
-using MathEquations;
+using GeneticAlgoProblems;
 using GeneticAlgorithm;
 
 namespace MainProgram
@@ -10,12 +10,16 @@ namespace MainProgram
         {
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
-            Algorithm.FitnessFunction = Equation1.CalculateFitness;
-            Constants.ChromosomeLength = Equation1.VariableCount;
+            var problem = new Equation1();
 
-            var bestSolution = GeneticAlgorithm.Algorithm.FindBestSolution();
+            Constants.ChromosomeLength = problem.VariableCount;
+            Constants.GeneMin = problem.VariableMin;
+            Constants.GeneMax = problem.VariableMax;
+
+            var algo = new Algorithm {FitnessFunction = problem.CalculateFitness};
+
+            var bestSolution = algo.FindBestSolution();
             Console.WriteLine($"Chromosome: {bestSolution}, Fitness:{bestSolution.Fitness}");
-
 
             watch.Stop();
             Console.WriteLine($"Elapsed time in Milliseconds: {watch.ElapsedMilliseconds}");

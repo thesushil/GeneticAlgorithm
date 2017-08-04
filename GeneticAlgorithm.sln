@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneticAlgorithm", "Genetic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainProgram", "MainProgram\MainProgram.csproj", "{F80DAE84-F191-4D3D-8172-71EAE7085030}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathEquations", "MathEquations\MathEquations.csproj", "{2876694F-2567-40C3-8CCF-0A942125FCD2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneticAlgoProblems", "GeneticAlgoProblems\GeneticAlgoProblems.csproj", "{2876694F-2567-40C3-8CCF-0A942125FCD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

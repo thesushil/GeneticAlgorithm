@@ -16,11 +16,21 @@ namespace GeneticAlgorithm
             {
                 for (var j = i + 1; j < parents.Count; j++)
                 {
+                    if (Math.Abs(parents[i].Fitness - parents[j].Fitness) < 0.0001) continue;
                     var child = CrossOver(parents[i], parents[j]);
+                    Mutate(child);
                     children.Add(child);
                 }
             }
             return children;
+        }
+
+        private static void Mutate(Chromosome child)
+        {
+            if (MyRandom.NextDouble() < Constants.MutationRate)
+            {
+                child.Genes[MyRandom.Next(ChromosomeLength)] = Chromosome.CreateRandomGene();
+            }
         }
 
         private static IEnumerable<Chromosome> SelectParents(IEnumerable<Chromosome> chromosomes)

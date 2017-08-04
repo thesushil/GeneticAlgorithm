@@ -41,6 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Equation1.cs" />
+    <Compile Include="Equation2.cs" />
+    <Compile Include="IProblem.cs" />
+    <Compile Include="NQueen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
