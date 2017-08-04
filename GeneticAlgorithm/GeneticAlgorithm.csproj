@@ -37,6 +37,8 @@
   <ItemGroup>
     <Compile Include="Chromosome.cs" />
     <Compile Include="Algorithm.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="NextGeneration.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
