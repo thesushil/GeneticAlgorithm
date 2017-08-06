@@ -10,7 +10,7 @@ namespace MainProgram
         {
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
-            var problem = new NQueen(16);
+            var problem = new NQueen(100);
 
             Constants.ChromosomeLength = problem.VariableCount;
             Constants.GeneMin = problem.VariableMin;
