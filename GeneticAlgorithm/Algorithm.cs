@@ -7,68 +7,73 @@ namespace GeneticAlgorithm
 {
     public class Algorithm
     {
-        private const int PopulationSize = 10;
-        private const int MaxGeneration = 100;
-
-        public Func<IEnumerable<double>, double> FitnessFunction { get; set; }
+        public Algorithm(Func<IEnumerable<double>, double> fitnessFunction)
+        {
+            Chromosome.FitnessFunction = fitnessFunction;
+        }
 
         public Chromosome FindBestSolution()
         {
             InitializePopulation(PopulationSize);
-            UpdateFitnessAndGeneration(_population);
             var fittest = _population.Max();
-            UpdateRelativeFitness(_population, fittest.Fitness);
+            UpdateRelativeFitness(fittest.Fitness);
 
             // Next Generation
             while (_generation++ < MaxGeneration)
             {
-                var children = NextGeneration.Create(_population).ToList();
-                UpdateFitnessAndGeneration(children);
+                var nextGeneration = new NextGeneration(_generation);
+                var children = nextGeneration.Create(_population).ToList();
                 
-                _population.AddRange(children);
+                _population.UnionWith(children);
 
                 fittest = _population.Max();
-                UpdateRelativeFitness(_population, fittest.Fitness);
+                UpdateRelativeFitness(fittest.Fitness);
 
-                //KillOld(_population);
+                KillOldAndWeak();
+
+                if (_population.Count > MaxPopulation) LimitPopulation();
             }
 
             return fittest;
         }
 
-        private void KillOld(List<Chromosome> population)
+        private void KillOldAndWeak()
         {
-            population.RemoveAll(c => _generation - c.Generation > 3 && _myRandom.NextDouble() > 0.5);
+            _population.RemoveWhere(c => _generation - c.Generation > OldGeneratioin
+                                         && _myRandom.NextDouble() > c.RelativeFitness);
         }
 
-        private void UpdateRelativeFitness(IEnumerable<Chromosome> chromosomes, double maxFitness)
+        private void LimitPopulation()
         {
-            foreach (var chromosome in chromosomes)
+            // sort by RelativeFitness and keep top fittest
+            // Adding random selection makes it very slow
+            var keepList = _population.OrderByDescending(c => c.RelativeFitness).Take(MaxPopulation);
+            _population = new HashSet<Chromosome>(keepList, new Chromosome());
+        }
+
+        private void UpdateRelativeFitness(double maxFitness)
+        {
+            foreach (var chromosome in _population)
             {
                 chromosome.RelativeFitness = chromosome.Fitness / maxFitness;
             }
         }
 
-        private void UpdateFitnessAndGeneration(IList<Chromosome> chromosomes)
-        {
-            foreach (var chromosome in chromosomes)
-            {
-                chromosome.Fitness = FitnessFunction(chromosome.Genes);
-                chromosome.Generation = _generation;
-            }
-        }
-
         private void InitializePopulation(int populationSize)
         {
-            _population = new List<Chromosome>(populationSize);
+            _population = new HashSet<Chromosome>(new Chromosome());
             for (var i = 0; i < populationSize; i++)
-            {                
-                _population.Add(Chromosome.CreateRandomChromosome());
+            {
+                _population.Add(Chromosome.CreateRandomChromosome(_generation));
             }
         }
 
-        private List<Chromosome> _population; // Using List as it supports AddRange
+        private HashSet<Chromosome> _population;
         private int _generation = 1;
         private readonly Random _myRandom = Constants.MyRandom;
+        private const int MaxPopulation = Constants.MaxPopulation;
+        private const int PopulationSize = Constants.InitialPopulation;
+        private const int MaxGeneration = Constants.MaxGeneration;
+        private const int OldGeneratioin = Constants.OldGeneration;
     }
 }

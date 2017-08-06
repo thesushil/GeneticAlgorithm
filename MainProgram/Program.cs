@@ -10,13 +10,13 @@ namespace MainProgram
         {
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
-            var problem = new Equation1();
+            var problem = new Equation2();
 
             Constants.ChromosomeLength = problem.VariableCount;
             Constants.GeneMin = problem.VariableMin;
             Constants.GeneMax = problem.VariableMax;
 
-            var algo = new Algorithm {FitnessFunction = problem.CalculateFitness};
+            var algo = new Algorithm(problem.CalculateFitness);
 
             var bestSolution = algo.FindBestSolution();
             Console.WriteLine($"Chromosome: {bestSolution}, Fitness:{bestSolution.Fitness}");
