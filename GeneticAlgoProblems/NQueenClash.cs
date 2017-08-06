@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace GeneticAlgoProblems
@@ -18,19 +19,15 @@ namespace GeneticAlgoProblems
                 .Sum(group => CalculateIntSumUpto(group.Count() - 1));
         }
 
-        public int CalculateDiag1Attacks()
+        public int CalculateDiagAttacks()
         {
-            var col = 1;
-            foreach (var row in _positions)
+            var attacks = 0;
+            for (var i = 0; i < _positions.Length; i++)
+            for (var j = i+1; j < _positions.Length; j++)
             {
-                if (col++ == row) return 1;
+                if (Math.Abs(i-j) == Math.Abs(_positions[i] - _positions[j])) attacks++;
             }
-            return 1;
-        }
-
-        public int CalculateDiag2Attacks()
-        {
-            throw new System.NotImplementedException();
+            return attacks;
         }
 
         private int CalculateIntSumUpto(int n)

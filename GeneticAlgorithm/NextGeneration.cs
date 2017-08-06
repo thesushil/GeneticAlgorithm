@@ -58,6 +58,7 @@ namespace GeneticAlgorithm
             if (MyRandom.NextDouble() < Constants.MutationRate)
             {
                 genes[MyRandom.Next(ChromosomeLength)] = Chromosome.CreateRandomGene();
+                genes[MyRandom.Next(ChromosomeLength)] = Chromosome.CreateRandomGene();
             }
         }
 

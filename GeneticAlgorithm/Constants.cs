@@ -6,13 +6,13 @@ namespace GeneticAlgorithm
     {
         private const int RandomSeed = 297;
 
-        public const int InitialPopulation = 10000;
+        public const int InitialPopulation = 100;
         public const int MaxPopulation = 1000000;
-        public const int MaxGeneration = 30;
+        public const int MaxGeneration = 100;
         public const int OldGeneration = 4;
 
-        public const int MaxNumOfParents = 1000;
-        public const float MutationRate = 0.55F; 
+        public const int MaxNumOfParents = 100;
+        public const float MutationRate = 0.99F; 
 
         public static readonly Random MyRandom = new Random(RandomSeed);
 

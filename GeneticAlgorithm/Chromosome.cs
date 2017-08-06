@@ -28,8 +28,8 @@ namespace GeneticAlgorithm
 
         public static double CreateRandomGene()
         {
-            return (GeneMin + (GeneMax - GeneMin) * Constants.MyRandom.NextDouble());
-            //return (int)(GeneMin + (GeneMax - GeneMin) * Constants.MyRandom.NextDouble());
+            //return (GeneMin + (GeneMax - GeneMin) * Constants.MyRandom.NextDouble());
+            return (int)(GeneMin + (GeneMax - GeneMin) * Constants.MyRandom.NextDouble());
         }
 
         public static Chromosome CreateRandomChromosome(int generation = 0)

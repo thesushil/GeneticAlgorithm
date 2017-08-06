@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainProgram", "MainProgram\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneticAlgoProblems", "GeneticAlgoProblems\GeneticAlgoProblems.csproj", "{2876694F-2567-40C3-8CCF-0A942125FCD2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{86226E4C-5B32-46EC-881E-731946727230}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneticAlgoProblemsTest", "Tests\GeneticAlgoProblemsTest\GeneticAlgoProblemsTest.csproj", "{22E57ACA-4D32-4D1A-A83A-D75F076418D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +31,15 @@ Global
 		{2876694F-2567-40C3-8CCF-0A942125FCD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2876694F-2567-40C3-8CCF-0A942125FCD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2876694F-2567-40C3-8CCF-0A942125FCD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22E57ACA-4D32-4D1A-A83A-D75F076418D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22E57ACA-4D32-4D1A-A83A-D75F076418D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22E57ACA-4D32-4D1A-A83A-D75F076418D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22E57ACA-4D32-4D1A-A83A-D75F076418D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{22E57ACA-4D32-4D1A-A83A-D75F076418D3} = {86226E4C-5B32-46EC-881E-731946727230}
 	EndGlobalSection
 EndGlobal
