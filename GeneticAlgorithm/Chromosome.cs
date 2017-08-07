@@ -12,13 +12,13 @@ namespace GeneticAlgorithm
 
         public Chromosome(Gene[] genes, int generation)
         {
-            Genes = genes;
+            Genes = Array.AsReadOnly(genes);
             Generation = generation;
             Fitness = FitnessFunction(genes.Select(g => (double) g.Value));
         }
 
         public int Generation { get; }
-        public Gene[] Genes { get; }
+        public IList<Gene> Genes { get; }
         public double Fitness { get; }
         public double RelativeFitness { get; set; }
 
