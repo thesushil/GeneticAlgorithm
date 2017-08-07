@@ -12,7 +12,7 @@ namespace GeneticAlgorithm
         public const int OldGeneration = 4;
 
         public const int MaxNumOfParents = 100;
-        public const float MutationRate = 0.99F; 
+        public const float MutationRate = 0.89F; 
 
         public static readonly Random MyRandom = new Random(RandomSeed);
 
