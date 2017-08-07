@@ -19,7 +19,7 @@ namespace GeneticAlgorithm
 
         public int Generation { get; }
         public Gene[] Genes { get; }
-        public double Fitness { get; set; }
+        public double Fitness { get; }
         public double RelativeFitness { get; set; }
 
         public static Func<IEnumerable<double>, double> FitnessFunction { get; set; }
