@@ -37,9 +37,26 @@ namespace GeneticAlgorithm
             return fittest;
         }
 
+        private void InitializePopulation(int populationSize)
+        {
+            _population = new HashSet<Chromosome>(new Chromosome());
+            for (var i = 0; i < populationSize; i++)
+            {
+                _population.Add(Chromosome.CreateRandomChromosome(_generation));
+            }
+        }
+
+        private void UpdateRelativeFitness(double maxFitness)
+        {
+            foreach (var chromosome in _population)
+            {
+                chromosome.RelativeFitness = chromosome.Fitness / maxFitness;
+            }
+        }
+
         private void KillOldAndWeak()
         {
-            _population.RemoveWhere(c => _generation - c.Generation > OldGeneratioin
+            _population.RemoveWhere(c => _generation - c.Generation > OldGeneration
                                          && _myRandom.NextDouble() > c.RelativeFitness);
         }
 
@@ -51,29 +68,12 @@ namespace GeneticAlgorithm
             _population = new HashSet<Chromosome>(keepList, new Chromosome());
         }
 
-        private void UpdateRelativeFitness(double maxFitness)
-        {
-            foreach (var chromosome in _population)
-            {
-                chromosome.RelativeFitness = chromosome.Fitness / maxFitness;
-            }
-        }
-
-        private void InitializePopulation(int populationSize)
-        {
-            _population = new HashSet<Chromosome>(new Chromosome());
-            for (var i = 0; i < populationSize; i++)
-            {
-                _population.Add(Chromosome.CreateRandomChromosome(_generation));
-            }
-        }
-
         private HashSet<Chromosome> _population;
         private int _generation = 1;
         private readonly Random _myRandom = AlgoParam.MyRandom;
         private const int MaxPopulation = AlgoParam.MaxPopulation;
         private const int PopulationSize = AlgoParam.InitialPopulation;
         private const int MaxGeneration = AlgoParam.MaxGeneration;
-        private const int OldGeneratioin = AlgoParam.OldGeneration;
+        private const int OldGeneration = AlgoParam.OldGeneration;
     }
 }

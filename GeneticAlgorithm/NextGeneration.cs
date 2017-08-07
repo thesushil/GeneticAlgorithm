@@ -21,7 +21,9 @@ namespace GeneticAlgorithm
             {
                 for (var j = i + 1; j < parents.Count; j++)
                 {
-                    if (Math.Abs(parents[i].Fitness - parents[j].Fitness) < 0.0001) continue;
+                    // To promote variations, prevent twins (or near twins) from mating with each other
+                    if (Math.Abs(parents[i].Fitness - parents[j].Fitness) < 0.00001) continue;
+
                     var newGenes = CrossOver(parents[i], parents[j]);
                     Mutate(newGenes);
                     children.Add(new Chromosome(newGenes, _generation));

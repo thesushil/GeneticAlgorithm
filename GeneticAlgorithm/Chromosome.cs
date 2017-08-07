@@ -22,7 +22,7 @@ namespace GeneticAlgorithm
         public double Fitness { get; }
         public double RelativeFitness { get; set; }
 
-        public static Func<IEnumerable<double>, double> FitnessFunction { get; set; }
+        public static Func<IEnumerable<double>, double> FitnessFunction { private get; set; }
 
         public static Chromosome CreateRandomChromosome(int generation = 0)
         {
@@ -33,7 +33,7 @@ namespace GeneticAlgorithm
             return new Chromosome(genes, generation);
         }
 
-        public override string ToString() => $"[{string.Join<Gene>(" ", Genes)}]";
+        public override string ToString() => $"[{string.Join(" ", Genes)}]";
 
         public int CompareTo(Chromosome other) => Fitness.CompareTo(other.Fitness);
 
