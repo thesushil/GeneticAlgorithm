@@ -43,7 +43,7 @@ namespace GeneticAlgorithm
         private Chromosome CrossOverAndMutate(Chromosome parent1, Chromosome parent2)
         {
             var crossPoint = MyRandom.Next(ChromosomeLength - 1); // -1 ensures at least 1 gene from parent2
-            var newGenes = new double[ChromosomeLength];
+            var newGenes = new Gene[ChromosomeLength];
             var i = 0;
             for (; i <= crossPoint; i++) newGenes[i] = parent1.Genes[i];
             for (; i < ChromosomeLength; i++) newGenes[i] = parent2.Genes[i];
@@ -53,12 +53,12 @@ namespace GeneticAlgorithm
             return new Chromosome(newGenes, _generation);
         }
 
-        private static void Mutate(double[] genes)
+        private static void Mutate(Gene[] genes)
         {
             if (MyRandom.NextDouble() < Constants.MutationRate)
             {
-                genes[MyRandom.Next(ChromosomeLength)] = Chromosome.CreateRandomGene();
-                genes[MyRandom.Next(ChromosomeLength)] = Chromosome.CreateRandomGene();
+                genes[MyRandom.Next(ChromosomeLength)] = Gene.CreateRandomGene();
+                genes[MyRandom.Next(ChromosomeLength)] = Gene.CreateRandomGene();
             }
         }
 
