@@ -6,7 +6,7 @@ namespace GeneticAlgoProblems
 {
     public class Equation2 : IProblem<double>
     {
-        // e.g. a + 2b + 5c + 4d + 8e + 7f + 13g + 6g = 30
+        // e.g. a + 2b + 5c + 4d + 8e + 7f + 13g + 6h = 30
 
         public int VariableCount => 8;
         public int VariableMin => -100;
