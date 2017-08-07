@@ -66,7 +66,7 @@ namespace GeneticAlgorithm
 
         private static void Mutate(Gene[] genes)
         {
-            if (MyRandom.NextDouble() < Constants.MutationRate)
+            if (MyRandom.NextDouble() < AlgoParam.MutationRate)
             {
                 genes[MyRandom.Next(ChromosomeLength)] = Gene.CreateRandomGene();
                 genes[MyRandom.Next(ChromosomeLength)] = Gene.CreateRandomGene();
@@ -75,8 +75,8 @@ namespace GeneticAlgorithm
 
         private readonly int _generation;
 
-        private static readonly int ChromosomeLength = Constants.ChromosomeLength;
-        private static readonly Random MyRandom = Constants.MyRandom;
-        private const int MaxParents = Constants.MaxNumOfParents;
+        private static readonly int ChromosomeLength = AlgoParam.ChromosomeLength;
+        private static readonly Random MyRandom = AlgoParam.MyRandom;
+        private const int MaxParents = AlgoParam.MaxNumOfParents;
     }
 }

@@ -37,7 +37,7 @@
   <ItemGroup>
     <Compile Include="Chromosome.cs" />
     <Compile Include="Algorithm.cs" />
-    <Compile Include="Constants.cs" />
+    <Compile Include="AlgoParam.cs" />
     <Compile Include="Gene.cs" />
     <Compile Include="NextGeneration.cs" />
   </ItemGroup>

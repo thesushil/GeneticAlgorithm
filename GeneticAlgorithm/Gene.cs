@@ -4,18 +4,20 @@ namespace GeneticAlgorithm
 {
     public class Gene
     {
-        private Gene(int value)
+        private Gene(double value)
         {
             Value = value;
         }
 
-        public int Value { get;}
+        public double Value { get;}
 
         public static Gene CreateRandomGene()
         {
-            //return (GeneMin + (GeneMax - GeneMin) * Constants.MyRandom.NextDouble());
+            // Uncomment below for double genes
+            //return new Gene(GeneMin + (GeneMax - GeneMin) * AlgoParam.MyRandom.NextDouble());
 
-            return new Gene(Constants.MyRandom.Next(GeneMin, GeneMax + 1));
+            // Uncomment below for Integer genes
+            return new Gene(AlgoParam.MyRandom.Next(GeneMin, GeneMax + 1));
             // +1 to make the range inclusive; otherwise the random int is always less than GeneMax
         }
 
@@ -29,7 +31,7 @@ namespace GeneticAlgorithm
             return Value.GetHashCode();
         }
 
-        private static readonly int GeneMin = Constants.GeneMin;
-        private static readonly int GeneMax = Constants.GeneMax;
+        private static readonly int GeneMin = AlgoParam.GeneMin;
+        private static readonly int GeneMax = AlgoParam.GeneMax;
     }
 }

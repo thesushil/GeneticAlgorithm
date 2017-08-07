@@ -6,7 +6,7 @@ namespace GeneticAlgorithm
 {
     public class Chromosome : IComparable<Chromosome>, IEqualityComparer<Chromosome>
     {
-        private static readonly int Length = Constants.ChromosomeLength;
+        private static readonly int Length = AlgoParam.ChromosomeLength;
 
         public Chromosome() {}
 

@@ -10,11 +10,12 @@ namespace MainProgram
         {
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
-            var problem = new NQueen(100);
+            var problem = new NQueen(15);
+            //var problem = new Equation2();
 
-            Constants.ChromosomeLength = problem.VariableCount;
-            Constants.GeneMin = problem.VariableMin;
-            Constants.GeneMax = problem.VariableMax;
+            AlgoParam.ChromosomeLength = problem.VariableCount;
+            AlgoParam.GeneMin = problem.VariableMin;
+            AlgoParam.GeneMax = problem.VariableMax;
 
             var algo = new Algorithm(problem.CalculateFitness);
 

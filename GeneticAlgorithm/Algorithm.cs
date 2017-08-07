@@ -70,10 +70,10 @@ namespace GeneticAlgorithm
 
         private HashSet<Chromosome> _population;
         private int _generation = 1;
-        private readonly Random _myRandom = Constants.MyRandom;
-        private const int MaxPopulation = Constants.MaxPopulation;
-        private const int PopulationSize = Constants.InitialPopulation;
-        private const int MaxGeneration = Constants.MaxGeneration;
-        private const int OldGeneratioin = Constants.OldGeneration;
+        private readonly Random _myRandom = AlgoParam.MyRandom;
+        private const int MaxPopulation = AlgoParam.MaxPopulation;
+        private const int PopulationSize = AlgoParam.InitialPopulation;
+        private const int MaxGeneration = AlgoParam.MaxGeneration;
+        private const int OldGeneratioin = AlgoParam.OldGeneration;
     }
 }
